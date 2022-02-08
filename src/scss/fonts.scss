@@ -1,0 +1,25 @@
+@import "variables.scss";
+
+@font-face {
+  font-family: 'MontserratBold';
+  src: url($fontsPath + "Montserrat-Bold.ttf") format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MontserratMedium';
+  src: url($fontsPath + "Montserrat-Medium.ttf") format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MontserratSemiBold';
+  src: url($fontsPath + "Montserrat-SemiBold.ttf") format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'RalewayMedium';
+  src: url($fontsPath + "Raleway-Medium.ttf") format('truetype');
+  font-display: swap;
+}

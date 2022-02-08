@@ -94,12 +94,12 @@ module.exports = {
     devServer: {
         historyApiFallback: true,
         static: {
-            directory: path.resolve(__dirname, 'app'),
+            directory: path.resolve(__dirname, 'dist'),
         },
         open: true,
         compress: true,
         hot: true,
-        port: 3000,
+        port: 8080,
     },
     optimization: optimization(),
     plugins: plugins(),
