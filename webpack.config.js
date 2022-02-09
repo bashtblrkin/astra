@@ -108,10 +108,7 @@ module.exports = {
         rules: [
             {
                 test: /\.html$/,
-                loader: 'html-loader',
-                options: {
-                    esModule: false
-                }
+                loader: 'html-loader'
             },
             {
                 test: /\.css$/i,
@@ -133,7 +130,9 @@ module.exports = {
                             },
                         }
                     },
-                    'css-loader',
+                    {
+                        loader: 'css-loader'
+                    },
                     'sass-loader'
                 ],
             },
@@ -144,21 +143,20 @@ module.exports = {
             },
             {
                 test: /\.(?:|gif|png|jpg|jpeg|svg)$/,
-                use: [{
-                    loader: 'file-loader',
-                    options: {
-                        name: `./img/${filename('[ext]')}`
+                type: 'asset/resource',
+                generator: {
+                    filename: () => {
+                        return isDev ? 'img/[name][ext]' : 'img/[name].[contenthash][ext]';
                     }
-                }],
+                }
             },
             {
-                test: /\.(?:|woff2)$/,
-                use: [{
-                    loader: 'file-loader',
-                    options: {
-                        name: `./fonts/${filename('[ext]')}`
+                test: /\.(?:|ttf)$/,
+                generator: {
+                    filename: () => {
+                        return isDev ? 'fonts/[name][ext]' : 'fonts/[name].[contenthash][ext]';
                     }
-                }],
+                },
             }
         ]
     }

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+
     <header>
         <div class="container">
             <div class="row d-flex align-items-center header-top">
@@ -42,13 +43,14 @@
             </div>
         </div>
     </header>
+
     <nav>
         <div class="container h-100">
-            <div class="row h-100 d-flex align-items-center">
-                <div class="col-lg-8">
+            <div class="row h-100 d-flex align-items-center nav-wrap">
+                <div class="col-lg-8 nav-hidden-block">
                     <ul class="nav">
                         <li class="nav-item">
-                            <a href="" class="nav-item_link">Главная</a>
+                            <a href="" class="nav-item_link active">Главная</a>
                         </li>
                         <li class="nav-item">
                             <a href="" class="nav-item_link">О клинике</a>
@@ -70,8 +72,53 @@
                         </li>
                     </ul>
                 </div>
+                <div class="col-lg-3 nav-hidden-block">
+                    <a href="#" class="btn primary ml-40">Записаться на приём</a>
+                </div>
+                <div class="col-lg-1 d-flex justify-content-end nav-hidden-block">
+                    <img src="img/searchicon.svg" alt="Поиск" class="nav-search">
+                </div>
+                <div class="col-lg-12 visually-hidden nav-search-block">
+                    <input type="text" id="search" class="nav-input"><label for="search" id="search-close"></label>
+                </div>
             </div>
         </div>
     </nav>
+
+    <section class="section-main">
+
+        <div class="slider-main">
+
+            <div class="section-main-slide">
+                <img class="section-main-watermark" src="img/main-bg-watermark.png" alt="">
+                <img src="img/eye-bg.jpg" alt="" class="section-main-slide-img">
+                <div class="container h-100">
+                    <div class="row h-100 d-flex align-content-center">
+                        <div class="col-lg-6">
+                            <h2 class="section-main-slide_header">Лазерная корреция зрения</h2>
+                            <p class="section-main-slide_subtext">Всего за 3900 руб. оба глаза</p>
+                            <a href="#" class="primary section-main-slide_btn">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-main-slide">
+                <img class="section-main-watermark" src="img/main-bg-watermark.png" alt="">
+                <img src="img/eye-bg.jpg" alt="" class="section-main-slide-img">
+                <div class="container h-100">
+                    <div class="row h-100 d-flex align-content-center">
+                        <div class="col-lg-6">
+                            <h2 class="section-main-slide_header">Лазерная корреция зрения</h2>
+                            <p class="section-main-slide_subtext">Всего за 3900 руб. оба глаза</p>
+                            <a href="#" class="primary section-main-slide_btn">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
 </body>
 </html>

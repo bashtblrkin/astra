@@ -1,3 +1,8 @@
-@mixin btn {
+@import "variables";
 
+@mixin btn {
+  width: 100%;
+  background-color: $turq;
+  border-radius: 37px;
+  text-decoration: none;
 }
