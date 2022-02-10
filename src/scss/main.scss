@@ -19,6 +19,7 @@ p, span {
   font-family: 'MontserratBold', 'sans-serif';
   font-size: 14px;
   color: white;
+  transition: all 0.2s ease;
   &:hover {
     background-color: white;
     color: $turq;
@@ -214,6 +215,104 @@ nav {
         font-family: 'MontserratMedium', 'sans-serif';
         font-size: 14px;
         border: 1px solid transparent;
+        transition: all 0.2s ease;
+        &:hover {
+          cursor: pointer;
+          border: 1px solid $turq;
+          background: white;
+          color: $turq;
+        }
+      }
+    }
+  }
+
+  &-services {
+    &-header {
+      position: relative;
+      width: 100%;
+      margin: 80px 0 0 0;
+      & h2 {
+        font-family: 'MontserratBold', 'sans-serif';
+        font-size: 36px;
+        color: $blueDark;
+        line-height: 50px;
+        margin: 0;
+        padding: 0;
+      }
+      &_top_line {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 72px;
+        height: 3px;
+        background-color: $blueDark;
+        border-radius: 32px;
+      }
+      &_bottom_line {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 72px;
+        height: 3px;
+        background-color: $turq;
+        border-radius: 32px;
+
+      }
+    }
+
+    &-card {
+      display: flex;
+      flex-direction: column;
+      margin-top: 50px;
+      &_img_wrap {
+        position: relative;
+        width: 100%;
+      }
+      &_img {
+        &_header {
+          position: absolute;
+          bottom: 10px;
+          left: 30px;
+          font-family: 'MontserratMedium', 'sans-serif';
+          font-size: 36px;
+          color: white;
+        }
+      }
+      &_service {
+        &_wrap {
+          margin-top: 30px;
+          overflow: hidden;
+          max-height: 80px;
+          transition: max-height 0.3s ease;
+          &.show {
+            max-height: 300px;
+          }
+        }
+        display: inline-block;
+        font-family: 'RalewayRegular', 'sans-serif';
+        font-size: 18px;
+        line-height: 30px;
+        margin: 0 30px 10px 0;
+        color: $blueDark;
+        border-bottom: 1px solid $blueDark;
+        transition: opacity 0.3s ease;
+        &:hover {
+          cursor: pointer;
+          opacity: 0.8;
+        }
+      }
+      &_btn {
+        @include btn;
+        width: 165px;
+        height: 40px;
+        color: white;
+        font-family: 'MontserratSemiBold', 'sans-serif';
+        font-size: 14px;
+        text-align: center;
+        padding: 10px;
+        margin-top: 40px;
+        border: 1px solid transparent;
+        transition: all 0.2s ease;
         &:hover {
           cursor: pointer;
           border: 1px solid $turq;
@@ -225,13 +324,40 @@ nav {
   }
 }
 
-.slick {
+.slider-main .slick {
   &-track {
     display: block;
     height: 100%;
   }
   &-list {
     height: 100%;
+  }
+  &-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translate(0, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    li {
+      list-style: none;
+      margin: 0 9px;
+      &.slick-active button{
+        background: rgba(4, 16, 71, 0.8);
+        width: 12px;
+        height: 12px;
+      }
+    }
+    button {
+      padding: 0;
+      font-size: 0;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(4, 16, 71, 0.3);
+      border: none;
+    }
   }
 }
 

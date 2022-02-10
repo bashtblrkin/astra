@@ -24,6 +24,16 @@ function toggleClassForSearchInput(hiddenBlocks, searchBlock, searchInput) {
     searchInput.classList.toggle('open')
 }
 
+function toggleClassForGifBlock (block) {
+    const img = block.querySelector('.img')
+    const video = block.querySelector('.gif')
+    console.log(video)
+    if (img && video) {
+        img.classList.add('d-none')
+        video.classList.remove('d-none')
+    }
+}
+
 function activateSearchInput() {
     const hiddenBlocks = document.querySelectorAll('.nav-hidden-block')
     const searchIcon = document.querySelector('.nav-search')
@@ -53,11 +63,47 @@ function activateSlick() {
         infinite: true,
         slidesToShow: 1,
         slidesToScroll: 1,
-        arrows: false
+        arrows: false,
+        dots: true
     })
+}
+
+function activateGifs() {
+    const videoBlocks = document.querySelectorAll('.section-services-card_img_wrap')
+    if (videoBlocks) {
+        videoBlocks.forEach(block => {
+            block.addEventListener('mouseover', function () {
+                toggleClassForGifBlock(this)
+            })
+            block.addEventListener('mouseout', function () {
+                const img = this.querySelector('.img')
+                const video = this.querySelector('.gif')
+                if (img && video) {
+                    img.classList.remove('d-none')
+                    video.classList.add('d-none')
+                }
+            })
+        })
+    }
+}
+
+function activateServicesDropDown() {
+    const buttonAllServices = document.querySelectorAll('.section-services-card_btn')
+    if (buttonAllServices) {
+        buttonAllServices.forEach(btn => {
+            btn.addEventListener('click', function (event) {
+                event.preventDefault()
+                const wrapBlockServices = this.parentElement.querySelector('.section-services-card_service_wrap')
+                wrapBlockServices.classList.toggle('show')
+                this.innerText = this.innerText === 'Все услуги' ? 'Свернуть' : 'Все услуги';
+            })
+        })
+    }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     activateSearchInput()
     activateSlick()
+    activateGifs()
+    activateServicesDropDown()
 })

@@ -23,3 +23,9 @@
   src: url($fontsPath + "Raleway-Medium.ttf") format('truetype');
   font-display: swap;
 }
+
+@font-face {
+  font-family: 'RalewayRegular';
+  src: url($fontsPath + "Raleway-Regular.ttf") format('truetype');
+  font-display: swap;
+}
