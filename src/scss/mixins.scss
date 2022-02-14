@@ -6,3 +6,51 @@
   border-radius: 37px;
   text-decoration: none;
 }
+
+@mixin section-header {
+  position: relative;
+  width: 100%;
+  margin: 80px 0 0 0;
+  display: flex;
+  flex-direction: row;
+}
+@mixin section-header_top_line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 72px;
+  height: 3px;
+  background-color: $blueDark;
+  border-radius: 32px;
+}
+
+@mixin section-header_bottom_line {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 72px;
+  height: 3px;
+  background-color: $turq;
+  border-radius: 32px;
+}
+
+@mixin section-header-h2 {
+  font-family: 'MontserratBold', 'sans-serif';
+  font-size: 36px;
+  color: $blueDark;
+  line-height: 50px;
+  margin: 0;
+  padding: 0;
+  width: 50%;
+}
+
+@mixin section-header_dop_text {
+  width: 50%;
+  font-family: 'RalewaySemiBold', 'sans-serif';
+  font-size: 14px;
+  color: $blueDark;
+  opacity: 0.6;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  margin-top: 7px;
+}

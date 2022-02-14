@@ -29,3 +29,9 @@
   src: url($fontsPath + "Raleway-Regular.ttf") format('truetype');
   font-display: swap;
 }
+
+@font-face {
+  font-family: 'RalewaySemiBold';
+  src: url($fontsPath + "Raleway-SemiBold.ttf") format('truetype');
+  font-display: swap;
+}

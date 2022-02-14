@@ -228,35 +228,15 @@ nav {
 
   &-services {
     &-header {
-      position: relative;
-      width: 100%;
-      margin: 80px 0 0 0;
+      @include section-header;
       & h2 {
-        font-family: 'MontserratBold', 'sans-serif';
-        font-size: 36px;
-        color: $blueDark;
-        line-height: 50px;
-        margin: 0;
-        padding: 0;
+       @include section-header-h2;
       }
       &_top_line {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 72px;
-        height: 3px;
-        background-color: $blueDark;
-        border-radius: 32px;
+       @include section-header_top_line;
       }
       &_bottom_line {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        width: 72px;
-        height: 3px;
-        background-color: $turq;
-        border-radius: 32px;
-
+       @include section-header_bottom_line;
       }
     }
 
@@ -319,6 +299,59 @@ nav {
           background: white;
           color: $turq;
         }
+      }
+    }
+  }
+
+  &-specialists {
+    &-header {
+      & h2 {
+        @include section-header-h2;
+      }
+      @include section-header;
+      &_top_line {
+        @include section-header_top_line;
+      }
+      &_bottom_line {
+        @include section-header_bottom_line;
+      }
+      &_dop_text {
+        @include section-header_dop_text;
+      }
+    }
+    &-card {
+      margin-top: 32px;
+      &_img {
+        &_wrap {
+          position: relative;
+        }
+        &_text {
+          position: absolute;
+          top: 10px;
+          left: 0;
+          width: 135px;
+          height: 23px;
+          text-align: center;
+          line-height: 23px;
+          background: rgba(38, 52, 141, 0.8);
+          color: white;
+          font-family: 'MontserratSemiBold', 'sans-serif';
+          font-size: 12px;
+          border-radius: 0 43px 43px 0;
+        }
+      }
+      &_header {
+        margin-top: 32px;
+        font-family: 'MontserratMedium', 'sans-serif';
+        font-size: 18px;
+        color: $blueDark;
+      }
+      &_subtext {
+        margin-top: 10px;
+        font-family: 'RalewayMedium', 'sans-serif';
+        font-size: 14px;
+        color: $blueDark;
+        opacity: 0.6;
       }
     }
   }
