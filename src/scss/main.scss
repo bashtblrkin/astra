@@ -365,6 +365,96 @@ nav {
       }
     }
   }
+
+  &-recording {
+    margin-top: 80px;
+    height: 110px;
+    width: 100%;
+    background-color: $turq;
+    & h2 {
+      font-family: 'MontserratBold', 'sans-serif';
+      font-size: 30px;
+      color: white;
+      display: inline-block;
+    }
+    &_btn {
+      @include btn;
+      width: 242px;
+      height: 60px;
+      outline: none;
+      border: none;
+      background-color: white;
+      color: $turq;
+      font-family: 'MontserratSemiBold', 'sans-serif';
+      font-size: 24px;
+      transition: color, background-color 0.3s ease;
+      &:hover {
+        border: 4px solid white;
+        background-color: $turq;
+        color: white;
+      }
+    }
+  }
+
+  &-about-us {
+    background-color: $lightBackground;
+    padding-top: 80px;
+    &-header {
+      @include section-header;
+      margin: 0;
+      & h2 {
+        @include section-header-h2;
+
+      }
+      &_top_line {
+        @include section-header_top_line;
+      }
+      &_bottom_line {
+        @include section-header_bottom_line;
+      }
+      &_dop_text {
+        @include section-header_dop_text;
+      }
+    }
+    &-infoblock {
+      margin-top: 20px;
+      &-text {
+        height: 600px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        &_item {
+          display: flex;
+          flex-direction: row;
+          align-items: flex-start;
+          margin-bottom: 50px;
+          &:last-child {
+            margin-bottom: 0;
+          }
+          & img {
+            margin-right: 25px;
+          }
+          & h2 {
+            font-family: 'MontserratBold', 'sans-serif';
+            font-size: 96px;
+            color: $blueDark;
+            line-height: 80px;
+          }
+          & p {
+            font-family: 'RalewayMedium', 'sans-serif';
+            font-size: 24px;
+            color: $blueDark;
+            margin-left: 5px;
+          }
+        }
+      }
+    }
+  }
+
+  &-news {
+    height: 666px;
+    background: url($imgPath + "news-background.png") center / cover no-repeat;
+  }
 }
 
 .slider-specialists .slick {
