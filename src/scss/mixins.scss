@@ -3,6 +3,7 @@
 @mixin btn {
   width: 100%;
   background-color: $turq;
+  border: none;
   border-radius: 37px;
   text-decoration: none;
 }
