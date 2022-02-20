@@ -76,7 +76,27 @@ function activateSlick() {
         arrows: false,
         dots: true,
         autoplay: true,
-        autoplaySpeed: 5000
+        autoplaySpeed: 5000,
+        responsive: [
+            {
+                breakpoint: 1200,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    infinite: true,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 576,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: true
+                }
+            }
+        ]
     })
 }
 
@@ -113,9 +133,111 @@ function activateServicesDropDown() {
     }
 }
 
+function togglePopups() {
+    const popupLinks = document.querySelectorAll('.popup-link')
+    const body = document.querySelector('body')
+    const lockPadding = document.querySelectorAll('.lock-padding')
+    const popupCloseIcon = document.querySelector('.popup-close')
+
+    let unlock = true
+
+    const timeout = 800
+
+    if (popupLinks.length > 0) {
+        popupLinks.forEach(popupLink => {
+            popupLink.addEventListener('click', (event) => {
+                const popup = document.querySelector('#popup')
+                popupOpen(popup)
+                event.preventDefault()
+            })
+        })
+    }
+
+    if (popupCloseIcon) {
+        popupCloseIcon.addEventListener('click', (event) => {
+            popupClose(popupCloseIcon.closest('.popup'))
+            event.preventDefault()
+        })
+    }
+
+    function popupOpen(currentPopup) {
+        if (currentPopup && unlock) {
+            bodyLock()
+            currentPopup.classList.add('open')
+            currentPopup.addEventListener('click', (event) => {
+                if (!event.target.closest('.popup-content')) {
+                    popupClose(event.target.closest('.popup'))
+                }
+            })
+        }
+    }
+
+    function popupClose(popupActive) {
+        if (unlock) {
+            popupActive.classList.remove('open')
+            bodyUnlock()
+        }
+    }
+
+    function bodyLock() {
+        const lockPaddingValue = window.innerWidth - document.querySelector('.wrapper').offsetWidth + 'px'
+
+        if (lockPadding.length > 0) {
+            lockPadding.forEach(el => {
+                el.style.paddingRight = lockPaddingValue
+            })
+        }
+        body.style.paddingRight = lockPaddingValue
+        body.classList.add('lock')
+
+        unlock = false
+        setTimeout(() => {
+            unlock = true
+        }, timeout)
+    }
+
+    function bodyUnlock() {
+        setTimeout(() => {
+            lockPadding.forEach(el => {
+                el.style.paddingRight = '0px'
+            })
+            body.style.paddingRight = '0px'
+            body.classList.remove('lock')
+        }, timeout)
+
+        unlock = false
+        setTimeout(() => {
+            unlock = true
+        }, timeout)
+    }
+}
+
+function activateBurgerMenu () {
+    const iconMenu = document.querySelector('.menu_icon')
+
+    if (iconMenu) {
+        const menuBody = document.querySelector('.menu_body')
+        const menuBodyHeader = document.querySelector('.menu_body_header')
+
+        iconMenu.addEventListener('click', () => {
+            const headerHeight = document.querySelector('header').offsetHeight - window.scrollY
+            if (menuBody && menuBodyHeader && headerHeight) {
+                menuBody.style.top = headerHeight + 'px'
+                menuBodyHeader.style.top = headerHeight + 'px'
+                iconMenu.classList.toggle('active')
+                document.body.classList.toggle('lock')
+                menuBody.classList.toggle('active')
+                menuBodyHeader.classList.toggle('active')
+            }
+        })
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     activateSearchInput()
     activateSlick()
     activateGifs()
     activateServicesDropDown()
+    togglePopups()
+    activateBurgerMenu()
 })
