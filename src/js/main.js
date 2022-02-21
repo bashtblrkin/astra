@@ -50,7 +50,9 @@ function activateSearchInput() {
     }
 
     if (searchCloseIcon) {
-        searchCloseIcon.addEventListener('click', () => {
+        searchCloseIcon.addEventListener('click', (e) => {
+            e.preventDefault()
+            e.stopPropagation()
             if (hiddenBlocks && searchBlock) {
                 toggleClassForSearchInput(hiddenBlocks, searchBlock, searchInput)
             }

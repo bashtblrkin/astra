@@ -51,6 +51,7 @@ p, span {
     flex-direction: row;
     justify-content: space-between;
     align-content: center;
+    margin-bottom: 10px;
     &_item {
       &:hover {
         cursor: pointer;
@@ -272,7 +273,7 @@ nav {
           max-height: 80px;
           transition: max-height 0.3s ease;
           &.show {
-            max-height: 300px;
+            max-height: 800px;
           }
         }
         display: inline-block;
@@ -1091,7 +1092,7 @@ body.lock {
     font-size: 22px;
   }
   .section-recording h2 {
-    height: 45px;
+    height: 10px;
   }
   .section-about-us-infoblock_img {
     display: none;
@@ -1154,6 +1155,15 @@ body.lock {
     flex-direction: column;
   }
   .footer-info-block {
+    margin-bottom: 10px;
+  }
+  .header-logo {
+    margin-bottom: 10px;
+  }
+  .header-info-wrap {
+    margin-bottom: 10px;
+  }
+  .footer-logo {
     margin-bottom: 10px;
   }
 }
