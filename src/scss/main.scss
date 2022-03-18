@@ -198,6 +198,7 @@ nav {
         font-size: 48px;
         color: $blueDark;
         position: relative;
+        word-wrap: break-word;
         z-index: 8;
         margin-bottom: 20px;
       }
@@ -340,6 +341,9 @@ nav {
       &_img {
         &_wrap {
           position: relative;
+          & img {
+            width: 235px;
+          }
         }
         &_text {
           position: absolute;
@@ -568,11 +572,16 @@ nav {
       }
       & img {
         margin-right: 20px;
+        max-width: 133px;
+        max-height: 116px;
       }
     }
 
     &-btn {
       @include btn;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       width: 165px;
       background-color: $turq;
       color: white;
@@ -1100,6 +1109,15 @@ body.lock {
 }
 
 @media (max-width: 576px) {
+
+  .section-main-slide_header {
+    font-size: 24px;
+  }
+
+  .section-main-slide_subtext {
+    font-size: 16px;
+  }
+
   .btn {
     margin-left: 0;
   }
