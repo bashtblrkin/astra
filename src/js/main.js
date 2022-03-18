@@ -27,7 +27,7 @@ function toggleClassForSearchInput(hiddenBlocks, searchBlock, searchInput) {
 function toggleClassForGifBlock (block) {
     const img = block.querySelector('.img')
     const video = block.querySelector('.gif')
-    console.log(video)
+
     if (img && video) {
         img.classList.add('d-none')
         video.classList.remove('d-none')

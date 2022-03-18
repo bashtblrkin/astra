@@ -195,7 +195,7 @@ nav {
       }
       &_header {
         font-family: 'MontserratBold', 'sans-serif';
-        font-size: 48px;
+        font-size: 45px;
         color: $blueDark;
         position: relative;
         word-wrap: break-word;
@@ -512,6 +512,10 @@ nav {
       }
       &_info {
         display: flex;
+        & img {
+          max-width: 133px;
+          max-height: 116px;
+        }
         &_date {
           position: relative;
           font-family: 'MontserratMedium', 'sans-serif';
@@ -572,8 +576,6 @@ nav {
       }
       & img {
         margin-right: 20px;
-        max-width: 133px;
-        max-height: 116px;
       }
     }
 
@@ -734,7 +736,7 @@ nav {
   }
   &-dots {
     position: absolute;
-    bottom: 0;
+    bottom: -50px;
     left: 50%;
     transform: translate(-50%, 0);
     display: flex;
@@ -900,6 +902,17 @@ body.lock {
 
 }
 
+.text-success {
+  display: block;
+  text-align: center;
+  --bs-text-opacity: 1;
+  color: rgba(var(--bs-success-rgb),var(--bs-text-opacity))!important;
+}
+.text-error {
+  color: red;
+  display: block;
+  text-align: center;
+}
 
 .popup {
   z-index: 110;
@@ -926,6 +939,7 @@ body.lock {
   }
   &-content {
     max-width: 500px;
+    position: relative;
   }
   &-close {
     width: 20px;
@@ -937,6 +951,7 @@ body.lock {
     color: black;
     top: 10px;
     right: 10px;
+    z-index: 10;
     &:hover {
       cursor: pointer;
     }
@@ -1141,7 +1156,7 @@ body.lock {
     text-align: center;
   }
   .section-recording_btn {
-    height: 30px;
+    height: 40px;
   }
   .section-about-us-header h2 {
     width: 100%;
