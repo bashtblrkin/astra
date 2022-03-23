@@ -1,4 +1,5 @@
-import '../index.html';
+/*import '../html/views/index.html';
+import '../html/views/services.html';*/
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../scss/main.scss';

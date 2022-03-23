@@ -1,4 +1,5 @@
 const path = require('path');
+const fs = require('fs')
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -11,6 +12,25 @@ const isDev = process.env.NODE_ENV === 'development';
 const isProd = !isDev;
 
 const filename = (ext) => isDev ? `[name].${ext}` : `[name].[contenthash].${ext}`;
+
+function generateHtmlPlugins(templateDir) {
+    const templateFiles = fs.readdirSync(path.resolve(__dirname, templateDir));
+    return templateFiles.map(item => {
+        const parts = item.split('.');
+        const name = parts[0];
+        const extension = parts[1];
+        return new HTMLWebpackPlugin({
+            filename: `${name}.html`,
+            template: path.resolve(__dirname, `${templateDir}/${name}.${extension}`),
+            minify: {
+                collapseWhitespace: isProd
+            },
+            inject: true,
+        })
+    })
+}
+
+const htmlPlugins = generateHtmlPlugins('./src/html/views')
 
 const optimization = () => {
     const configObj = {
@@ -31,13 +51,6 @@ const optimization = () => {
 
 const plugins = () => {
     const basePlugins = [
-        new HTMLWebpackPlugin({
-            template: path.resolve(__dirname, 'src/index.html'),
-            filename: 'index.html',
-            minify: {
-                collapseWhitespace: isProd
-            }
-        }),
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
             filename: `./css/${filename('css')}`
@@ -51,6 +64,7 @@ const plugins = () => {
                 }
             ]
         }),
+        ...htmlPlugins
     ];
 
     if (isProd) {
@@ -104,11 +118,25 @@ module.exports = {
     optimization: optimization(),
     plugins: plugins(),
     devtool: isProd ? false : 'source-map',
+    resolve: {
+        //extensions: ['.js', '.json', '.png'],
+        alias: {
+            '@views': path.resolve(__dirname, 'src/html/views'),
+            '@includes': path.resolve(__dirname, 'src/html/includes'),
+            '@scss': path.resolve(__dirname, 'src/scss'),
+            '@': path.resolve(__dirname, 'src'),
+        }
+    },
     module: {
         rules: [
             {
                 test: /\.html$/,
-                loader: 'html-loader'
+                include: [path.resolve(__dirname, 'src/html/includes')],
+                loader: 'html-loader',
+                options: {
+                    minimize: false,
+                    esModule: false
+                }
             },
             {
                 test: /\.css$/i,
