@@ -370,6 +370,40 @@ nav {
         }
       }
     }
+
+    &-price {
+      margin-left: 40px;
+      border-radius: 25px;
+      background-color: rgb(60, 172, 183, 0.05);
+      &-block {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 25px 30px;
+        position: relative;
+        &_name {
+          font-family: 'RalewayRegular', 'sans-serif';
+          font-size: 16px;
+          letter-spacing: 0.05em;
+          color: black;
+        }
+        &_coast {
+          font-family: 'RalewaySemiBold', 'sans-serif';
+          font-size: 24px;
+          color: $blueLight;
+          letter-spacing: 0.05em;
+        }
+      }
+    }
+
+    &-info {
+      margin-top: 40px;
+      margin-left: 40px;
+      font-size: 16px;
+      font-weight: 400;
+      font-family: 'RalewayRegular', 'sans-serif';
+      letter-spacing: 0.05em;
+    }
   }
 
   &-specialists {
