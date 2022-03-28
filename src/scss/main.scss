@@ -1109,6 +1109,9 @@ body.lock {
     font-size: 10px;
     margin-right: 10px;
   }
+  .section-services-price-block_coast {
+    font-size: 18px;
+  }
 }
 
 @media (max-width: 991px) {
@@ -1220,6 +1223,24 @@ body.lock {
   .footer-rating-block {
     margin-bottom: 10px;
   }
+  .section-services-price {
+    margin-top: 40px;
+    margin-left: 0;
+  }
+  .section-services-info {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .section-services-price-block_name {
+    width: 70%;
+  }
+  .section-services-main-block.active {
+    &::after {
+      content: none;
+    }
+  }
 }
 
 @media (max-width: 762px) {
@@ -1235,6 +1256,8 @@ body.lock {
   .section-about-us-infoblock_img {
     display: none;
   }
+
+
 }
 
 @media (max-width: 576px) {
@@ -1312,5 +1335,14 @@ body.lock {
   }
   .footer-logo {
     margin-bottom: 10px;
+  }
+  .section-services-price-block_name {
+    font-size: 15px;
+  }
+  .section-services-price-block_coast {
+    font-size: 16px;
+  }
+  .section-services-price-block_name {
+    width: 60%;
   }
 }
