@@ -330,6 +330,9 @@ nav {
             color: white;
           }
         }
+        &_link {
+          text-decoration: none;
+        }
         &.active {
           background-color: $blueLight;
           & p {
