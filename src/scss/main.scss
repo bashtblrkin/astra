@@ -1338,11 +1338,10 @@ body.lock {
   }
   .section-services-price-block_name {
     font-size: 15px;
+    width: 60%;
+    overflow-wrap: break-word;
   }
   .section-services-price-block_coast {
     font-size: 16px;
-  }
-  .section-services-price-block_name {
-    width: 60%;
   }
 }
