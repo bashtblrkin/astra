@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../scss/main.scss';
 import $ from 'jquery';
 import './slick.min.js';
+import mixitup from 'mixitup';
 
 function toggleClassForSearchInput(hiddenBlocks, searchBlock, searchInput) {
 
@@ -236,6 +237,13 @@ function activateBurgerMenu () {
     }
 }
 
+function activateMixinUp () {
+    const container = document.querySelector('#Container')
+    if (container) {
+        let mixer = mixitup(container)
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     activateSearchInput()
     activateSlick()
@@ -243,4 +251,5 @@ document.addEventListener('DOMContentLoaded', () => {
     activateServicesDropDown()
     togglePopups()
     activateBurgerMenu()
+    activateMixinUp()
 })

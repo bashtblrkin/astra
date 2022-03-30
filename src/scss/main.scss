@@ -719,6 +719,35 @@ nav {
       letter-spacing: 0.05em;
     }
   }
+
+  &-personal {
+    padding: 40px 0px;
+    &-filter {
+      padding: 10px 20px;
+      font-family: 'RalewayRegular', 'sans-serif';
+      font-size: 16px;
+      letter-spacing: 0.05em;
+      transition: background-color 0.2s ease;
+      &:hover {
+        background-color: $blueLight;
+        color: white;
+        cursor: pointer;
+      }
+      &.mixitup-control-active {
+        background-color: $blueLight;
+        color: white;
+      }
+    }
+    &-card {
+      margin-top: 32px;
+      padding: 15px 10px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
 }
 
 .footer {
