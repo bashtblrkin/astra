@@ -244,6 +244,33 @@ function activateMixinUp () {
     }
 }
 
+function activatePersonalAccordion () {
+    const arrAccord = document.querySelectorAll('.section-services-price-block_wrap.accordion')
+
+    function toggleImg (src) {
+        return src.endsWith('plus_accordion.png') ? src.split('plus_accordion.png')[0] + 'minus-accordion.png' : src.split('minus-accordion.png')[0] + 'plus_accordion.png'
+    }
+
+    if (arrAccord) {
+        arrAccord.forEach(element => {
+            element.addEventListener('click', () => {
+                const img = element.querySelector('img')
+                const parent = element.parentElement
+                if (parent) {
+                    const info = parent.querySelector('.section-services-price-block_info')
+                    if (info) {
+                        if (img) {
+                            img.src = toggleImg(img.src)
+                            info.classList.toggle('open')
+                        }
+                    }
+                }
+            })
+        })
+    }
+
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     activateSearchInput()
     activateSlick()
@@ -252,4 +279,5 @@ document.addEventListener('DOMContentLoaded', () => {
     togglePopups()
     activateBurgerMenu()
     activateMixinUp()
+    activatePersonalAccordion()
 })

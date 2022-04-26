@@ -1,0 +1,8 @@
+<% var data = {
+title: "О клинике"
+}; %>
+<%= _.template(require('./../includes/header.html'))(data) %>
+
+<%= _.template(require('./../includes/about_us.html'))() %>
+
+<%= _.template(require('./../includes/footer.html'))() %>
