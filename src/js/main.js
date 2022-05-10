@@ -129,7 +129,7 @@ function activateServicesDropDown() {
                 event.preventDefault()
                 const wrapBlockServices = this.parentElement.querySelector('.section-services-card_service_wrap')
                 wrapBlockServices.classList.toggle('show')
-                this.innerText = this.innerText === 'Все услуги' ? 'Свернуть' : 'Все услуги';
+                this.innerText = this.innerText === 'Показать ещё' ? 'Свернуть' : 'Показать ещё';
             })
         })
     }
