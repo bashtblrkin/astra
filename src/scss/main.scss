@@ -840,6 +840,13 @@ nav {
     }
   }
 
+  &-patient {
+    &-info {
+      margin-left: 40px;
+      font-family: 'MontserratMedium', 'sans-serif';
+      font-size: 14px;
+    }
+  }
 }
 
 .footer {
@@ -1076,6 +1083,23 @@ body.lock {
       color:$placeholder;
     }
   }
+  &_textarea {
+    background-color: transparent;
+    border: 1px solid $blueLight;
+    height: 100px;
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px 10px;
+    resize: none;
+    &:focus {
+      outline: none;
+    }
+    &::placeholder {
+      font-family: 'RalewayMedium', 'sans-serif';
+      font-size: 14px;
+      color:$placeholder;
+    }
+  }
   &-btn {
     @include btn;
     font-family: 'MontserratBold', 'sans-serif';
@@ -1135,6 +1159,51 @@ body.lock {
     }
   }
 
+}
+
+.form {
+  &-mini {
+    margin-top: 40px;
+    &.bordered {
+      border: 1px solid $blueLight;
+    }
+    &-submit-btn {
+      background-color: $blueLight;
+      border: 1px solid transparent;
+      font-family: 'MontserratBold', 'sans-serif';
+      color: white;
+      font-size: 14px;
+      height: 30px;
+      width: 100%;
+      margin-top: 20px;
+      transition: all 0.3s ease;
+      &:hover {
+        background-color: transparent;
+        border-color: $blueLight;
+        color: $blueLight;
+      }
+    }
+  }
+  &-header {
+    height: 40px;
+    background-color: $blueLight;
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    & img {
+      width: 25px;
+      margin-right: 15px;
+    }
+    & p {
+      color: white;
+      font-family: 'MontserratMedium', 'sans-serif';
+      font-size: 16px;
+    }
+  }
+  &-content {
+    padding: 0 20px 20px 20px;
+
+  }
 }
 
 .text-success {
@@ -1349,6 +1418,10 @@ body.lock {
     margin-left: 0;
   }
   .section-services-info {
+    margin-left: 0;
+  }
+  .section-patient-info {
+    margin-top: 40px;
     margin-left: 0;
   }
 }
