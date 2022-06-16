@@ -60,6 +60,63 @@ p, span {
   }
 }
 
+.sticky-icons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+  z-index: 50;
+  height: 200px;
+  width: 60px;
+  &__container {
+    height: 170px;
+    overflow: hidden;
+  }
+  &-wrap {
+    &__message {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: $blueDark;
+      border: 2px solid $turq;
+      box-shadow: 0 2px 12px $turq;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    &__icons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 13px 5px;
+      height: 170px;
+      overflow: hidden;
+      transform: translateY(170px);
+      background-color: $lightBackground;
+      border: 1px solid $turq;
+      border-radius: 5px;
+      transition: transform 0.3s ease;
+      &.open {
+        transform: translateY(0);
+      }
+    }
+  }
+  &__message {
+    width: 30px;
+    height: 30px;
+    &.close {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
 nav {
   height: 50px;
   width: 100%;
