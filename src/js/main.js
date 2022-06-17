@@ -15,7 +15,7 @@ function isMobile() {
 function toggleStickyIconPicture(stickyIconPictureOpen, stickyIconPictureClose) {
 
     if (!stickyIconPictureOpen && !stickyIconPictureClose) return
-    console.log(stickyIconPictureOpen.style.display)
+
     if (stickyIconPictureOpen.style.display === 'block') {
         stickyIconPictureOpen.style.display = 'none'
         stickyIconPictureClose.style.display = 'block'
@@ -33,7 +33,6 @@ function activateStickyIcons() {
 
         stickyIcon.addEventListener('click', () => {
             const iconsWrap = stickyIcon.querySelector('.sticky-icons-wrap__icons')
-            console.log(iconsWrap)
             if (iconsWrap) {
                 iconsWrap.classList.toggle('open')
                 toggleStickyIconPicture(stickyIconPictureOpen, stickyIconPictureClose)
