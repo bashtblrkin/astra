@@ -81,8 +81,9 @@ nav {
     position: relative;
   }
   &-item {
+    display: inline-block;
+    position: relative;
     &_link {
-      position: relative;
       text-decoration: none;
       color: white;
       font-family: 'MontserratMedium', 'sans-serif';
@@ -115,6 +116,53 @@ nav {
         height: 2px;
         background-color: white;
         transition: width 0.3s ease-out;
+      }
+    }
+    &-submenu {
+      position: absolute;
+      left: -15px;
+      z-index: 10;
+      visibility: hidden;
+      padding: 10px 0px;
+      background-color: transparent;
+      & > ul {
+        text-decoration: none;
+        list-style: none;
+        padding: 0;
+        & li:last-child {
+          border-bottom: 1px solid transparent;
+        }
+        & li {
+          font-family: 'MontserratMedium', 'sans-serif';
+          font-size: 14px;
+          color: white;
+          width: 100%;
+          border-bottom: 1px solid white;
+          padding: 10px 15px;
+          background-color: $blueLight;
+          &:last-child {
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+          }
+          &:hover {
+            background-color: rgba($blueLight, 0.9);
+          }
+          & a {
+            position: relative;
+            font-family: 'MontserratMedium', 'sans-serif';
+            font-size: 14px;
+            color: white;
+            text-decoration: none;
+            &:hover {
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+    &:hover {
+      & > .nav-item-submenu {
+        visibility: visible;
       }
     }
   }
@@ -1354,6 +1402,41 @@ body.lock {
 }
 
 @media (max-width: 767px) {
+  .nav-item.expandable {
+    position: relative;
+    overflow: hidden;
+  }
+  .triangle-icon {
+    position: absolute;
+    right: 20px;
+    top: 13px;
+    transform: translateY(-50%);
+    &:after {
+      content: '';
+      position: absolute;
+      border: 10px solid transparent;
+      border-top: 10px solid white;
+      transition: transform 0.3s ease;
+    }
+    &.expand:after {
+      transform: scaleY(-1) translateY(50%);
+    }
+  }
+  .nav-item-submenu {
+    display: block;
+    position: relative;
+    visibility: hidden;
+    transform: translateY(-100%);
+    transition: transform 0.4s ease;
+    & > ul {
+      & li {
+        background-color: transparent;
+      }
+    }
+    &.expand {
+      transform: translateY(0);
+    }
+  }
   .section-services-price-block_name {
     width: 70%;
   }

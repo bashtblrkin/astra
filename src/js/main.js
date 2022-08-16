@@ -7,6 +7,19 @@ import $ from 'jquery';
 import './slick.min.js';
 import mixitup from 'mixitup';
 
+function activateDropDownOnMobile() {
+    const triangleIcons = document.querySelectorAll('.triangle-icon')
+
+    if (triangleIcons.length === 0) return
+    triangleIcons.forEach(icon => {
+        const subMenu = icon.parentNode.querySelector('.nav-item-submenu')
+        icon.addEventListener('click', () => {
+            icon.classList.toggle('expand')
+            subMenu.classList.toggle('expand')
+        })
+    })
+}
+
 function toggleClassForSearchInput(hiddenBlocks, searchBlock, searchInput) {
 
     hiddenBlocks.forEach(block => {
@@ -280,4 +293,5 @@ document.addEventListener('DOMContentLoaded', () => {
     activateBurgerMenu()
     activateMixinUp()
     activatePersonalAccordion()
+    activateDropDownOnMobile()
 })
