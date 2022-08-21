@@ -14,8 +14,8 @@ function activateDropDownOnMobile() {
     triangleIcons.forEach(icon => {
         const subMenu = icon.parentNode.querySelector('.nav-item-submenu')
         icon.addEventListener('click', () => {
-            icon.classList.toggle('expand')
-            subMenu.classList.toggle('expand')
+                icon.classList.toggle('expand')
+                subMenu.classList.toggle('expand')
         })
     })
 }
@@ -204,7 +204,7 @@ function togglePopups() {
     const popupLinks = document.querySelectorAll('.popup-link')
     const body = document.querySelector('body')
     const lockPadding = document.querySelectorAll('.lock-padding')
-    const popupCloseIcon = document.querySelector('.popup-close')
+    const popupCloseIcon = document.querySelectorAll('.popup-close')
 
     let unlock = true
 
@@ -213,17 +213,20 @@ function togglePopups() {
     if (popupLinks.length > 0) {
         popupLinks.forEach(popupLink => {
             popupLink.addEventListener('click', (event) => {
-                const popup = document.querySelector('#popup')
+                const popupID = popupLink.getAttribute('aria-details')
+                const popup = document.querySelector('#' + popupID)
                 popupOpen(popup)
                 event.preventDefault()
             })
         })
     }
 
-    if (popupCloseIcon) {
-        popupCloseIcon.addEventListener('click', (event) => {
-            popupClose(popupCloseIcon.closest('.popup'))
-            event.preventDefault()
+    if (popupCloseIcon.length > 0) {
+        popupCloseIcon.forEach(closeIcon => {
+            closeIcon.addEventListener('click', (event) => {
+                popupClose(closeIcon.closest('.popup'))
+                event.preventDefault()
+            })
         })
     }
 

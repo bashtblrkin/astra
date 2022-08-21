@@ -1,0 +1,8 @@
+<% var data = {
+title: "Отзывы"
+}; %>
+<%= _.template(require('./../includes/header.html'))(data) %>
+
+<%= _.template(require('./../includes/reviews.html'))() %>
+
+<%= _.template(require('./../includes/footer.html'))() %>
