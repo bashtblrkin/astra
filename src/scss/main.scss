@@ -10,6 +10,10 @@ p, span {
   margin-bottom: 0;
 }
 
+a {
+  text-decoration: none;
+}
+
 .ml-40 {
   margin-left: 40px;
 }
@@ -56,6 +60,63 @@ p, span {
       &:hover {
         cursor: pointer;
       }
+    }
+  }
+}
+
+.sticky-icons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+  z-index: 50;
+  height: 200px;
+  width: 60px;
+  &__container {
+    height: 170px;
+    overflow: hidden;
+  }
+  &-wrap {
+    &__message {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: $blueLight;
+      border: 2px solid $turq;
+      box-shadow: 0 2px 12px $turq;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    &__icons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 13px 5px;
+      height: 170px;
+      overflow: hidden;
+      transform: translateY(170px);
+      background-color: $lightBackground;
+      border: 1px solid $turq;
+      border-radius: 5px;
+      transition: transform 0.3s ease;
+      &.open {
+        transform: translateY(0);
+      }
+    }
+  }
+  &__message {
+    width: 30px;
+    height: 30px;
+    &.close {
+      width: 20px;
+      height: 20px;
     }
   }
 }
@@ -888,6 +949,105 @@ nav {
     }
   }
 
+  &-patient {
+    &-info {
+      margin-left: 40px;
+      font-family: 'MontserratMedium', 'sans-serif';
+      font-size: 14px;
+    }
+  }
+
+  &-news-main {
+    &-new-block {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      height: 257px;
+      margin-top: 50px;
+      background-color: $turqLightBackground;
+      border-radius: 50px;
+      overflow: hidden;
+      &:last-child {
+        margin-bottom: 50px;
+      }
+      & img {
+        height: 257px;
+      }
+    }
+    &-info {
+      width: 100%;
+      padding: 25px 80px;
+      &__date {
+        font-weight: 400;
+        font-size: 16px;
+        letter-spacing: 0.05em;
+        opacity: 0.5;
+      }
+      & h2 {
+        font-family: 'MontserratBold', 'sans-serif';
+        font-size: 24px;
+        letter-spacing: 0.05em;
+        margin-bottom: 20px;
+      }
+      &__subtitle {
+        font-family: 'RalewayRegular', 'sans-serif';
+        font-size: 20px;
+        letter-spacing: 0.05em;
+        margin-bottom: 10px;
+      }
+      &__picture {
+        font-family: 'RalewayMedium', 'sans-serif';
+        font-size: 20px;
+        font-weight: 500;
+        letter-spacing: 0.05em;
+        color: $turq;
+        text-decoration: none;
+      }
+    }
+    &-pagination {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-bottom: 40px;
+      &_item {
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'MontserratMedium', 'sans-serif';
+        font-size: 24px;
+        color: $grey;
+        margin: 0 10px;
+        transition: 0.2s;
+        &.active {
+          color: white;
+          background-color: $turq;
+          &:hover {
+            color: white;
+            background-color: $turq;
+          }
+        }
+        &:hover {
+          cursor: pointer;
+          background-color: rgba(199, 199, 199, 0.2);
+        }
+        &_wrap {
+          display: flex;
+          flex-direction: row;
+        }
+      }
+      & img {
+        width: 15px;
+        height: 20px;
+        &:hover {
+          cursor: pointer;
+          opacity: 0.8;
+        }
+      }
+    }
+  }
 }
 
 .footer {
@@ -1124,6 +1284,23 @@ body.lock {
       color:$placeholder;
     }
   }
+  &_textarea {
+    background-color: transparent;
+    border: 1px solid $blueLight;
+    height: 100px;
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px 10px;
+    resize: none;
+    &:focus {
+      outline: none;
+    }
+    &::placeholder {
+      font-family: 'RalewayMedium', 'sans-serif';
+      font-size: 14px;
+      color:$placeholder;
+    }
+  }
   &-btn {
     @include btn;
     font-family: 'MontserratBold', 'sans-serif';
@@ -1183,6 +1360,51 @@ body.lock {
     }
   }
 
+}
+
+.form {
+  &-mini {
+    margin-top: 40px;
+    &.bordered {
+      border: 1px solid $blueLight;
+    }
+    &-submit-btn {
+      background-color: $blueLight;
+      border: 1px solid transparent;
+      font-family: 'MontserratBold', 'sans-serif';
+      color: white;
+      font-size: 14px;
+      height: 30px;
+      width: 100%;
+      margin-top: 20px;
+      transition: all 0.3s ease;
+      &:hover {
+        background-color: transparent;
+        border-color: $blueLight;
+        color: $blueLight;
+      }
+    }
+  }
+  &-header {
+    height: 40px;
+    background-color: $blueLight;
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    & img {
+      width: 25px;
+      margin-right: 15px;
+    }
+    & p {
+      color: white;
+      font-family: 'MontserratMedium', 'sans-serif';
+      font-size: 16px;
+    }
+  }
+  &-content {
+    padding: 0 20px 20px 20px;
+
+  }
 }
 
 .text-success {
@@ -1364,6 +1586,27 @@ body.lock {
       }
     }
   }
+
+  .section-news-main-info {
+    padding: 20px 10px;
+    &__date {
+      font-size: 12px;
+    }
+    & h2 {
+      font-size: 20px;
+    }
+    &__subtitle {
+      font-size: 16px;
+    }
+    a {
+      font-size: 16px;
+    }
+  }
+}
+
+@media (max-width: 991px) {
+
+
   .section-about-us-infoblock-text_item h2 {
     font-size: 56px;
   }
@@ -1399,9 +1642,32 @@ body.lock {
   .section-services-info {
     margin-left: 0;
   }
+  .section-patient-info {
+    margin-top: 40px;
+    margin-left: 0;
+  }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 767.98px) {
+  .section-services-price-block_name {
+    width: 70%;
+  }
+  .section-services-main-block.active {
+    &::after {
+      content: none;
+    }
+  }
+  .section-news-main-info {
+    padding: 15px 20px;
+  }
+  .section-news-main-new-block {
+    height: auto;
+    flex-direction: column;
+    margin-bottom: 30px;
+    &__picture {
+        height: 300px;
+    }
+  }
   .nav-item.expandable {
     position: relative;
     overflow: hidden;
@@ -1556,6 +1822,13 @@ body.lock {
     padding: 18px 30px;
     & p {
       font-size: 16px;
+    }
+  }
+
+  .section-news-main-new-block {
+    margin-top: 30px;
+    &:last-child {
+      margin-bottom: 30px;
     }
   }
 }

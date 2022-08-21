@@ -20,10 +20,60 @@ function activateDropDownOnMobile() {
     })
 }
 
+function isMobile() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i
+        .test(navigator.userAgent)
+}
+
+function toggleStickyIconPicture(stickyIconPictureOpen, stickyIconPictureClose) {
+
+    if (!stickyIconPictureOpen && !stickyIconPictureClose) return
+
+    if (stickyIconPictureOpen.style.display === 'block') {
+        stickyIconPictureOpen.style.display = 'none'
+        stickyIconPictureClose.style.display = 'block'
+    } else {
+        stickyIconPictureOpen.style.display = 'block'
+        stickyIconPictureClose.style.display = 'none'
+    }
+}
+
+function activateStickyIcons() {
+    const stickyIcon = document.querySelector('.sticky-icons')
+    if (stickyIcon) {
+        const stickyIconPictureOpen = stickyIcon.querySelector('#sticky-icons_open')
+        const stickyIconPictureClose = stickyIcon.querySelector('#sticky-icons_close')
+
+        stickyIcon.addEventListener('click', () => {
+            const iconsWrap = stickyIcon.querySelector('.sticky-icons-wrap__icons')
+            if (iconsWrap) {
+                iconsWrap.classList.toggle('open')
+                toggleStickyIconPicture(stickyIconPictureOpen, stickyIconPictureClose)
+            }
+        })
+    }
+}
+
+function disableIcons(className) {
+    const iconsBlock = document.querySelector('.' + className)
+    if (iconsBlock) {
+        iconsBlock.style.display = 'none'
+    }
+}
+
+function changeIconView() {
+    if (isMobile()) {
+        disableIcons('header-icons')
+        activateStickyIcons()
+    } else {
+        disableIcons('sticky-icons')
+    }
+}
+
 function toggleClassForSearchInput(hiddenBlocks, searchBlock, searchInput) {
 
     hiddenBlocks.forEach(block => {
-        if ( block.classList.contains('d-none')) {
+        if (block.classList.contains('d-none')) {
             setTimeout(() => block.classList.remove('d-none'), 300)
         } else {
             block.classList.add('d-none')
@@ -39,7 +89,7 @@ function toggleClassForSearchInput(hiddenBlocks, searchBlock, searchInput) {
     searchInput.classList.toggle('open')
 }
 
-function toggleClassForGifBlock (block) {
+function toggleClassForGifBlock(block) {
     const img = block.querySelector('.img')
     const video = block.querySelector('.gif')
 
@@ -144,7 +194,7 @@ function activateServicesDropDown() {
                 event.preventDefault()
                 const wrapBlockServices = this.parentElement.querySelector('.section-services-card_service_wrap')
                 wrapBlockServices.classList.toggle('show')
-                this.innerText = this.innerText === 'Все услуги' ? 'Свернуть' : 'Все услуги';
+                this.innerText = this.innerText === 'Показать ещё' ? 'Свернуть' : 'Показать ещё';
             })
         })
     }
@@ -229,7 +279,7 @@ function togglePopups() {
     }
 }
 
-function activateBurgerMenu () {
+function activateBurgerMenu() {
     const iconMenu = document.querySelector('.menu_icon')
 
     if (iconMenu) {
@@ -250,17 +300,17 @@ function activateBurgerMenu () {
     }
 }
 
-function activateMixinUp () {
+function activateMixinUp() {
     const container = document.querySelector('#Container')
     if (container) {
         let mixer = mixitup(container)
     }
 }
 
-function activatePersonalAccordion () {
+function activatePersonalAccordion() {
     const arrAccord = document.querySelectorAll('.section-services-price-block_wrap.accordion')
 
-    function toggleImg (src) {
+    function toggleImg(src) {
         return src.endsWith('plus_accordion.png') ? src.split('plus_accordion.png')[0] + 'minus-accordion.png' : src.split('minus-accordion.png')[0] + 'plus_accordion.png'
     }
 
@@ -285,6 +335,7 @@ function activatePersonalAccordion () {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    changeIconView()
     activateSearchInput()
     activateSlick()
     activateGifs()
