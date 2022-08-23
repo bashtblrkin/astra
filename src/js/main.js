@@ -25,49 +25,35 @@ function isMobile() {
         .test(navigator.userAgent)
 }
 
-function toggleStickyIconPicture(stickyIconPictureOpen, stickyIconPictureClose) {
-
-    if (!stickyIconPictureOpen && !stickyIconPictureClose) return
-
-    if (stickyIconPictureOpen.style.display === 'block') {
-        stickyIconPictureOpen.style.display = 'none'
-        stickyIconPictureClose.style.display = 'block'
-    } else {
-        stickyIconPictureOpen.style.display = 'block'
-        stickyIconPictureClose.style.display = 'none'
-    }
-}
-
-function activateStickyIcons() {
-    const stickyIcon = document.querySelector('.sticky-icons')
-    if (stickyIcon) {
-        const stickyIconPictureOpen = stickyIcon.querySelector('#sticky-icons_open')
-        const stickyIconPictureClose = stickyIcon.querySelector('#sticky-icons_close')
-
-        stickyIcon.addEventListener('click', () => {
-            const iconsWrap = stickyIcon.querySelector('.sticky-icons-wrap__icons')
-            if (iconsWrap) {
-                iconsWrap.classList.toggle('open')
-                toggleStickyIconPicture(stickyIconPictureOpen, stickyIconPictureClose)
-            }
+function setRouteMap() {
+    const routeLink = document.getElementById('map_route')
+    if ("geolocation" in navigator) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            routeLink.setAttribute('href', ` https://yandex.ru/maps/?rtext=${position.coords.latitude},${position.coords.longitude}~57.003145,40.944474&rtt=auto`)
         })
-    }
-}
-
-function disableIcons(className) {
-    const iconsBlock = document.querySelector('.' + className)
-    if (iconsBlock) {
-        iconsBlock.style.display = 'none'
-    }
-}
-
-function changeIconView() {
-    if (isMobile()) {
-        disableIcons('header-icons')
-        activateStickyIcons()
     } else {
-        disableIcons('sticky-icons')
+        routeLink.setAttribute('href', `https://yandex.ru/maps/?pt=40.944474,57.003145&z=18&l=map`)
     }
+}
+
+function activateFooterMenu() {
+
+    if (!isMobile()) return
+    setRouteMap()
+    const menuWrap = document.querySelector('.footer_menu_wrap')
+    const toggleMenuIcon = menuWrap.querySelector('.footer_menu_toggle')
+    const iconsMenuArr = menuWrap.querySelectorAll('.footer_menu_icon')
+
+    if (!menuWrap && !toggleMenuIcon && !iconsMenuArr) return;
+    menuWrap.style.display = 'flex'
+    toggleMenuIcon.addEventListener('click', () => {
+        menuWrap.classList.toggle('collapsed')
+        iconsMenuArr.forEach((icon, idx) => {
+            if (idx === 1) return
+            icon.classList.toggle('bounce')
+        })
+    })
+
 }
 
 function toggleClassForSearchInput(hiddenBlocks, searchBlock, searchInput) {
@@ -338,7 +324,7 @@ function activatePersonalAccordion() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    changeIconView()
+    activateFooterMenu()
     activateSearchInput()
     activateSlick()
     activateGifs()
