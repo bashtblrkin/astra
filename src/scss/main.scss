@@ -161,7 +161,6 @@ a {
     & img {
       width: 50px;
       height: 50px;
-      background-color: $blueLight;
       border-radius: 50%;
     }
     & p {
@@ -787,6 +786,15 @@ nav {
             margin-left: 5px;
           }
         }
+      }
+    }
+    &-video{
+      margin: 20px 0;
+      width: 70%;
+      &-wrap {
+        width: 100%;
+        display: flex;
+        justify-content: center;
       }
     }
     &-main {
@@ -1709,8 +1717,14 @@ body.lock {
   .nav-item_link {
     font-size: 13px;
   }
+  .section-main-slide_header {
+    max-width: 300px;
+  }
   .section-main-slide-img {
-    visibility: hidden;
+    visibility: visible;
+    width: 60%;
+    height: 100%;
+    z-index: 6;
   }
   .section-recording h2 {
     font-size: 26px;
@@ -1892,7 +1906,26 @@ body.lock {
   }
 }
 
+@media (max-width: 768px) {
+  .section-about-us-video {
+    width: 100%;
+  }
+  .section-main-slide_subtext {
+    max-width: 300px;
+  }
+}
+
 @media (max-width: 767.98px) {
+  .section-main-slide_header, .section-main-slide_subtext {
+    width: 250px;
+  }
+  .section-main-slide-img {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    max-width: 300px;
+    height: 50%;
+  }
   .section-services-price-block_name {
     width: 70%;
   }
@@ -1983,8 +2016,38 @@ body.lock {
 }
 
 @media (max-width: 576px) {
-
+  .section-main-slide.slick-slide .container .row.h-100.d-flex.align-content-center {
+    align-content: start!important;
+    justify-content: center;
+  }
+  .section-main-slide.slick-slide .container .col-xl-6 {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .section-main-watermark {
+    height: 100%;
+  }
   .section-main-slide_header {
+    word-wrap: normal;
+  }
+  .primary.section-main-slide_btn {
+    width: 250px;
+    text-align: center;
+  }
+  .section-main {
+    height: 800px;
+  }
+  .section-main-slide-img {
+    max-height: 300px;
+    width: 100%;
+    top: 100%;
+    left: 50%;
+    transform: translateY(-120%) translateX(-50%);
+  }
+  .section-main-slide_header {
+    display: inline;
     font-size: 24px;
   }
 
