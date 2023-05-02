@@ -7,8 +7,8 @@
     <link rel="shortcut icon" type="image/png" href="../../img/faivcon.png">
 </head>
 <body>
-
-<div class="wrapper">
+//Т.к. popup больше нет, убираем, чтобы работало position: sticky у nav блока
+<!--<div class="wrapper">-->
 
     <!--Заголовок-->
     <header>
@@ -83,7 +83,7 @@
     </div>
     
     <!--Меню навигации и поиск-->
-    <nav>
+    <nav style="position: sticky; top: 0; z-index: 10000000;">
         <div class="container h-100">
             <div class="row h-100 d-flex flex-row align-items-center nav-wrap">
                 <div class="col-xl-8 col-lg-8 col-md-2 col-sm-4 col-2 nav-hidden-block nav-wrap">
@@ -129,7 +129,7 @@
                     </div>
                 </div>
                 <div class="offset-xl-0 col-xl-3 offset-lg-0 col-lg-3 offset-md-4 col-md-4 offset-sm-0 col-sm-6 offset-0 col-8 nav-hidden-block">
-                    <a class="btn primary ml-40 popup-link" aria-details="popup" href="#" >Записаться на приём</a>
+                    <a class="btn primary ml-40 popup-link" href="https://booking.medflex.ru/?user=49532f2a0a25ad0865d612afd868ce5c&isRoundWidget=true">Записаться на приём</a>
                 </div>
                 <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-2 d-flex justify-content-end nav-hidden-block">
                     <img alt="Поиск" class="nav-search" src="../../img/searchicon.svg">
